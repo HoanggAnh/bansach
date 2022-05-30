@@ -1,0 +1,78 @@
+.img-fluid.logo {
+    width: 150px;
+    margin-left: 50px;
+}
+
+.navbar-nav {
+    margin-right: 30px;
+}
+
+.nav-link {
+    color: #fcc39b;
+}
+
+.nav-link:hover {
+    color: #f3906c;
+}
+
+.fas {
+    color: #c8b6ff;
+}
+
+.nav-link-c {
+    color: black;
+    text-decoration: none;
+}
+
+.nav-link-c:hover {
+    color: tomato;
+}
+
+.button-search {
+    margin-right: 40%;
+}
+
+.btn {
+    background-color: #f3906c;
+    border: none;
+    color: black;
+    padding: 10px;
+}
+
+.input-group {
+    margin-right: 6px;
+}
+
+.btn:hover {
+    background-color: #fec89a;
+    color: whitesmoke;
+}
+
+.carousel.slide {
+    background-color: #fff !important;
+}
+
+.navtab {
+    background-color: lavender;
+    margin-top: 50px;
+}
+
+.navbar-nav {
+    padding-left: 20px;
+}
+
+.nav-item {
+    padding-left: 20px;
+}
+
+h2 {
+    padding-top: 50px;
+}
+
+.btn-floating {
+    color: #f3906c;
+}
+
+.btn-floating:hover {
+    color: #fec89a;
+}
