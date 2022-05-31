@@ -38,7 +38,7 @@ include 'navbar.php';
 	<div class="row">
 		<div class="col-lg-12">
 			<div class="heading">
-				<h2>Books On Sale</h2>
+				<h2 style="text-align: center;">Books On Sale</h2>
 				<hr>
 			</div>
 

@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
 			$_SESSION['HoTen'] = $row["fullname"];
 			$_SESSION['email'] = $row["email"];
 			$_SESSION['dienthoai'] = $row["phone"];
-			header('Location: cart.php');  
+			header('Location: index.php');  
 			$row = $result->fetch_assoc();
 		}
 	} else {

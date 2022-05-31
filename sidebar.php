@@ -8,14 +8,14 @@
 				<?php
 				require 'inc/config.php';
 				//lay san pham theo id
-				$layidrandom = "SELECT ID,Ten  from nhaxuatban";
+				$layidrandom = "SELECT product_id,product_name  from product";
 				$kq = $conn->query($layidrandom);
 				if ($kq->num_rows > 0) {
 					// output data of each row
 					while ($d = $kq->fetch_assoc()) {
 
 				?>
-						<li><a href="category.php?manhasx=<?php echo $d["ID"] ?>"><?php echo $d["Ten"] ?></a></li>
+						<li><a style="color: #f3906c" href="product.php?id=<?php echo $d["product_id"] ?>"><?php echo $d["product_name"] ?></a></li>
 				<?php
 					}
 				}
@@ -28,21 +28,23 @@
 		<div class="heading">
 			<h3>Lastest Books</h3>
 		</div>
-		<div class="content" style = "margin-bottom: 50px ; padding-left: 35px" >
+		<div class="content" style="margin-bottom: 50px ; padding-left: 35px">
 			<?php
 			require 'inc/config.php';
-			$query = "SELECT * from sanpham ORDER BY date DESC limit 4;";
+			$query = "SELECT * from product ORDER BY product_id DESC limit 4;";
 			$rs = $conn->query($query);
 			if ($rs->num_rows > 0) {
 				// output data of each row
 				while ($row = $rs->fetch_assoc()) {
 
 			?>
-					<div class="product">
-						<a href="product.php?id=<?php echo $row["ID"] ?>"><img src="images/<?php echo $row["HinhAnh"] ?>" style="width:80px;height:100px" /></a>
+					<div style="padding: 10px 0 10px 0;" class="product">
+						<a href="product.php?id=<?php echo $row["product_id"] ?>"><img src="images/<?php echo $row["image"] ?>" style="width:80px;height:100px" /></a>
 						<div class="wrapper">
-							<h5><a href="product.php?id=<?php echo $row["ID"] ?>"><?php echo $row["Ten"] ?></a></h5>
-							<div class="price"><?php echo $row["Gia"] ?>.000 VNĐ</div>
+							<h5>
+								<a style="color:#f3906c;" href="product.php?id=<?php echo $row["product_id"] ?>"><?php echo $row["product_name"] ?></a>
+								<br><label class="price"><?php echo $row["price"] ?>,000 VNĐ</label>
+							</h5>
 						</div>
 					</div>
 			<?php

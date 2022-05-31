@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-lg-12">
 			<div class="heading">
-				<h2>Lastest Books</h2>
+				<h2 style="text-align: center;" >Lastest Books</h2>
 			</div>
 			<hr>
 

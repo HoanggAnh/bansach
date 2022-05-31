@@ -11,6 +11,7 @@ if (isset($_POST['Dat'])) {
 				from product s 
 				 WHERE  s.product_id  in ($str)";
         $result = $conn->query($query);
+        $id = isset($_SESSION['txtus']);
         $total = $_POST['total'];
         $totalkcodv = $_POST['totalkcodv'];
         $email =  $_SESSION['email'];
@@ -19,12 +20,10 @@ if (isset($_POST['Dat'])) {
         $diachi = $_POST['diachi'];
         $dienthoai =  $_SESSION['dienthoai'];
         $status = 0;
-        $id = 1;
         $hinhthucthanhtoan = $_POST['hinhthuctt'];
-        $note = "";
 
         $sql1 = "INSERT INTO bill (user_id,name_user,total_money,status,date,address,email,phone,note)
-                VALUES ('$id','$tenkh','$total','$status','$ngaygiao', '$diachi','$email', ,'$dienthoai','$hinhthucthanhtoan');";
+                VALUES ('$id','$tenkh','$totalkcodv','$status','$ngaygiao', '$diachi','$email','$dienthoai','$hinhthucthanhtoan');";
         if ($conn->query($sql1) === TRUE) {
             foreach ($result as $s) {
                 $masp = $s["product_id"];
@@ -46,9 +45,10 @@ if (isset($_POST['Dat'])) {
                        VALUES ('$str','$masp' ,'$dongia','$sl','$ngaygiao');";
 
                 if ($conn->query($sql2) === TRUE) {
+                    include 'rm-cart.php';
                     header('Location: xacnhandonhang.php');
                     // destroy the session 
-                    session_destroy();
+                    // session_destroy();
                 } else {
                     echo "Error: " . $sql2 . "<br>" . $conn->error;
                 }

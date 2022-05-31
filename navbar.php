@@ -23,7 +23,7 @@ include 'header.php';
             <div>
               <i class="fas fa-book fa-lg mb-1"></i>
             </div>
-            Publisher
+            Book Category
           </a>
             <div class="dropdown-menu">
               <div class="dropdown-inner">
@@ -31,14 +31,14 @@ include 'header.php';
                   <?php
                   //lay id nha san xuat
                   require 'inc/config.php';
-                  $laydanhsachnhasx = "SELECT ID as manhasx,Ten from nhaxuatban";
+                  $laydanhsachnhasx = "SELECT catalog_id as catalog_id,catalog_name from product_catalog";
                   $rstennhasx = $conn->query($laydanhsachnhasx);
                   if ($rstennhasx->num_rows > 0) {
                     // output data of each row
                     while ($row = $rstennhasx->fetch_assoc()) {
 
                   ?>
-                      <li><a href="category.php?manhasx=<?php echo $row["manhasx"] ?>"><?php echo $row["Ten"] ?></a></li>
+                      <li><a href="category.php?manhasx=<?php echo $row["catalog_id"] ?>"><?php echo $row["catalog_name"] ?></a></li>
                   <?php
                     }
                   }

@@ -71,7 +71,7 @@ include "navbar.php"
                             <div class="info">
                                 <ul>
                                     <li>Author: <b><?php echo $row["author"] ?></b></li>
-                                    <li>Category: <a href="/category.php?manhasx=<?php echo $row["catalog_id"] ?>"><?php echo $row_catalog["catalog_name"] ?></a>
+                                    <li>Category: <a href="category.php?manhasx=<?php echo $row["catalog_id"] ?>"><?php echo $row_catalog["catalog_name"] ?></a>
                                         <h3>
                                     </li>
                                 </ul>

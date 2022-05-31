@@ -80,8 +80,9 @@ include "navbar.php";
 				</div>
 
 
-				<div class="row text-center">
-					<ul class="pagination">
+				<div class="row text-center" style="display: inline-block; margin: 0; display:block;">
+				<div style="display: inline-block;">
+					<ul class="pagination" style="text-align:center; padding:0;">
 						<?php
 						// PHẦN HIỂN THỊ PHÂN TRANG
 						// BƯỚC 7: HIỂN THỊ PHÂN TRANG
@@ -107,6 +108,7 @@ include "navbar.php";
 						}
 						?>
 					</ul>
+				</div>
 				</div>
 
 
