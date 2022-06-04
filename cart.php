@@ -111,7 +111,9 @@ if (is_countable($_SESSION['cart']) == 0) {
 										<input type="submit" name="update" style="margin-top:31px" value="Update" class="btn btn-2" />
 									</div>
 									<hr>
-									<input type="submit" name="remove" value="Delete" class="btn btn-default pull-right" style="margin-bottom:5px">
+									<?php if($sl >= 2) {?>
+										<input type="submit" name="remove" value="Delete" class="btn btn-default pull-right" style="margin-bottom:5px">
+									<?php } ?>
 									<input type="hidden" name="idsprm" value="<?php echo $s["product_id"] ?>" />
 									<?php
 										$priceUpsale1 = ($s["price"] - $s["price"] * ($s["discount"] / 100));

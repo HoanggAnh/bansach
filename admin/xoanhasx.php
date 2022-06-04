@@ -3,7 +3,7 @@
     $id = $_GET['id'];
 
     // sql to delete a record
-    $sql = "DELETE FROM nhaxuatban WHERE ID=".$id;
+    $sql = "DELETE FROM product_catalog WHERE catalog_id=".$id;
 
     if ($conn->query($sql) === TRUE) {
         header('Location: qlynhasx.php');

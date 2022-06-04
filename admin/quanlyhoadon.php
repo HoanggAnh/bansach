@@ -42,58 +42,34 @@
                         <th>Số lượng</th>
                         <th>Đơn giá</th>
                         <th>Thành tiền</th> 
-                        <th>Ngày giao hàng </th>       
-                        <th>Dịch vụ</th>               
+                        <th>Ngày giao hàng </th>                 
                       </tr>
                     </thead>
                     <tbody>  
                
                     <?php
                          require '../inc/config.php';
-                         $sql="SELECT h.sodh,soluong,dongia,h.thanhtien
-                         ,s.Ten as tensanpham,ngaygiao,madv
-                         from chitiethoadon c 
-                         LEFT JOIN sanpham s on s.ID= c.masp
-                         LEFT JOIN hoadon h on h.sodh= c.sodh Order by tensanpham  ";
+                         $sql="SELECT detail_bill.detail_bill_id, bill.bill_id, detail_bill.product_id, detail_bill.price, bill.total_money, detail_bill.amount, detail_bill.date, product.product_name
+                         from detail_bill
+                         LEFT JOIN product on product.product_id= detail_bill.product_id
+                         LEFT JOIN bill on bill.bill_id= detail_bill.bill_id Order by detail_bill.detail_bill_id; ";
                          $result = $conn->query($sql); 
                          if ($result->num_rows > 0) {
                           // output data of each row
                           while($row = $result->fetch_assoc()) {
                       ?>       
                         <tr>     
-                        <td><?php  echo $row["sodh"] ?></td>                                                   
-                        <td ><a href ="chitiethd.php?sodh=<?php echo $row["sodh"]?>" style="color:black"><?php echo $row["tensanpham"] ?>  </a>     
+                        <td><?php  echo $row["bill_id"] ?></td>                                                   
+                        <td ><a href ="chitiethd.php?sodh=<?php echo $row["bill_id"]?>" style="color:black"><?php echo $row["product_name"] ?>  </a>     
                         </td>
-                        <td><?php  echo $row["soluong"] ?></td>
-                        <td><?php  echo $row["dongia"] ?>.000 VNĐ</td>
-                        <td><?php  echo $row["thanhtien"] ?>0 VNĐ</td>  
+                        <td><?php  echo $row["amount"] ?></td>
+                        <td><?php  echo $row["price"] ?>,000 VNĐ</td>
+                        <td><?php  echo $row["total_money"] ?>,000 VNĐ</td>  
                         <td><?php 
                         //chuyen ngaygiao thanh kieu  ngay thang nam
-                        $date=date_create($row["ngaygiao"]);
+                        $date=date_create($row["date"]);
                         echo date_format($date,"d/m/Y");
-                         ?></td>   
-                        <td>
-                        <?php
-                        if($row["madv"]!= "")
-                        {
-                         ?>
-                        <?php
-                        $ma= $row["madv"];
-                        // $madv= implode(",",$ma);
-                        $sql="SELECT tendv from dichvu where madv  in ($ma)";
-                        $results = $conn->query($sql);
-                        if ($results->num_rows > 0) {
-                          // output data of each row
-                          while($s = $results->fetch_assoc()) {
-                         // output data of each row
-                           echo "<p>".$s["tendv"] ."</p>";                      
-                        }
-                      }
-                        ?>
-                        <?php
-                        }
-                         ?>
-                        </td>        
+                         ?></td>           
                         </tr>
            
                         <?php

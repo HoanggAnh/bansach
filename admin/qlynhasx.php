@@ -19,12 +19,12 @@
         <section class="content-header">
           <h1>
            Quản lý
-            <small>Nhà xuất bản</small>
+            <small>Thể loại</small>
           </h1>
           <ol class="breadcrumb">
             <li><a href="index.php"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
             <li><a href="#">Quản lý</a></li>
-            <li class="active">Quản lý Nhà xuất bản</li>
+            <li class="active">Quản lý Thể loại</li>
           </ol>
         </section>
 
@@ -36,7 +36,7 @@
 
               <div class="box">
                 <div class="box-header">
-                  <h3 class="box-title">Quản lý Nhà xuất bản</h3>
+                  <h3 class="box-title">Quản lý Thể loại</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                   <table id="example1" class="table table-bordered table-striped">
@@ -49,17 +49,17 @@
                     <tbody> 
                     <?php
                          require '../inc/config.php';
-                         $sql="SELECT ID,Ten from nhaxuatban ";
+                         $sql="SELECT catalog_id,catalog_name from product_catalog ";
                          $result = $conn->query($sql); 
                          if ($result->num_rows > 0) {
                           // output data of each row
                           while($row = $result->fetch_assoc()) {
                       ?>      
                         <tr>                
-                        <td><?php echo $row["Ten"] ?></td>
-                        <td><a class="btn btn-primary" href="suanhasx.php?id=<?php  echo $row["ID"]  ?>">
+                        <td><?php echo $row["catalog_name"] ?></td>
+                        <td><a class="btn btn-primary" href="suanhasx.php?id=<?php  echo $row["catalog_id"]  ?>">
                         <i class="fa fa-edit fa-lg"<acronym title="Chỉnh sửa"></acronym></i></a>               
-                         <a class="btn btn-danger" onclick="return confirm('Bạn có thật sự muốn xóa không ?');" href="xoanhasx.php?id=<?php  echo $row["ID"]  ?>">                   <i class="fa fa-trash-o fa-lg" <acronym title="Xóa">
+                         <a class="btn btn-danger" onclick="return confirm('Bạn có thật sự muốn xóa không ?');" href="xoanhasx.php?id=<?php  echo $row["catalog_id"]  ?>"><i class="fa fa-trash-o fa-lg" <acronym title="Xóa">
                          </acronym></i></a></td>
                       </tr>  
                       <?php
@@ -70,7 +70,7 @@
                   </table>         
                   <div  style="text-align:left">
                 <a class="btn btn-primary "href="themnhasx.php">
-                    Thêm Nhà xuất bản</a>
+                    Thêm Thể loại</a>
                 </div>         
                 </div><!-- /.box-body -->
              

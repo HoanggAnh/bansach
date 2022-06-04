@@ -16,8 +16,8 @@ include "aside.php";
    require '../inc/config.php';
    //lay san pham theo id
    $sodh = $_GET["sodh"];
-   $query="SELECT * from hoadon
-	WHERE  sodh =".$sodh;
+   $query="SELECT * from bill
+	WHERE  bill_id =".$sodh;
    $result = $conn->query($query);
 $row = $result->fetch_assoc();
 
@@ -48,37 +48,37 @@ $row = $result->fetch_assoc();
                   <div class="form-group">
                       <label  class="col-sm-2">Số đơn hàng:</label>
                       <div class="col-sm-5">
-                      <p><?php echo $row["sodh"] ?></p>
+                      <p><?php echo $row["bill_id"] ?></p>
                       </div>
                     </div>
                     <div class="form-group">
                       <label  class="col-sm-2">Tên khách hàng:</label>
                       <div class="col-sm-5">
-                      <p><?php echo $row["tenkh"] ?></p>
+                      <p><?php echo $row["name_user"] ?></p>
                       </div>
                     </div>
                     <div class="form-group">
                     <label  class="col-sm-2 ">Email khách hàng:</label>
                     <div class="col-sm-5">
-                      <p><?php echo $row["emailkh"] ?></p>
+                      <p><?php echo $row["email"] ?></p>
                       </div> 
                     </div>    
                     <div class="form-group">
                     <label  class="col-sm-2 ">Địa chỉ giao hàng:</label>
                     <div class="col-sm-5">
-                      <p><?php echo $row["diachi"] ?></p>
+                      <p><?php echo $row["address"] ?></p>
                       </div> 
                     </div> 
                     <div class="form-group">
                     <label  class="col-sm-2 ">Điện thoại khách hàng:</label>
                     <div class="col-sm-5">
-                      <p><?php echo $row["dienthoai"] ?></p>
+                      <p><?php echo $row["phone"] ?></p>
                       </div> 
                     </div> 
                     <div class="form-group">
                     <label  class="col-sm-2 ">Hình thức thanh toán:</label>
                     <div class="col-sm-5">
-                      <p><?php echo $row["hinhthucthanhtoan"] ?></p>
+                      <p><?php echo $row["note"] ?></p>
                       </div> 
                     </div>               
                   </div><!-- /.box-body -->

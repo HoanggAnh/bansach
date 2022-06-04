@@ -4,7 +4,7 @@
           <!-- Sidebar user panel -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="../images/logo.png" class="img-circle" alt="User Image">
+              <img src="../images/logoms.png" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
               <p style=" font-size: 2rem">Admin</p>
@@ -26,7 +26,7 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="qlysanpham.php"><i class="fa fa-circle-o"></i> Quản lý Sách</a></li>
-                <li><a href="qlynhasx.php"><i class="fa fa-circle-o"></i> Quản lý Nhà xuất bản</a></li>
+                <li><a href="qlynhasx.php"><i class="fa fa-circle-o"></i> Quản lý Thể Loại</a></li>
               </ul>
             </li>
             <li class="treeview">

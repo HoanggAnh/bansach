@@ -45,7 +45,7 @@
                     <tbody>  
                     <?php
                          require '../inc/config.php';
-                         $sql="SELECT email,HoTen,DienThoai from loginuser Order by HoTen  ";
+                         $sql="SELECT email,fullname,phone from users";
                          $result = $conn->query($sql); 
                          if ($result->num_rows > 0) {
                           // output data of each row
@@ -53,8 +53,8 @@
                       ?>       
                         <tr>           
                         <td ><?php echo $row["email"] ?></td>
-                        <td><?php echo $row["HoTen"] ?></td>
-                        <td><?php echo $row["DienThoai"] ?></td>        
+                        <td><?php echo $row["fullname"] ?></td>
+                        <td><?php echo $row["phone"] ?></td>        
                         </tr>
                         <?php
                           }

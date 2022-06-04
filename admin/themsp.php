@@ -37,7 +37,7 @@ ob_start();
                   <h3 class="box-title">Thêm Sách</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
-                <form class="form-horizontal" method="POST" action="<?php include 'xulyluusp.php' ?>" enctype="multipart/form-data">
+                <form class="form-horizontal" method="POST" action="<?php include './xulyluusp.php' ?>" enctype="multipart/form-data">
                   <div class="box-body">
                     <div class="form-group">
                       <label for="inputEmail3" class="col-sm-2 control-label">Tên</label>
@@ -46,7 +46,7 @@ ob_start();
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="inputPassword3" class="col-sm-2 control-label" >Hình ảnh</label>
+                      <label for="inputEmail3" class="col-sm-2 control-label" >Hình ảnh</label>
                       <div class="col-sm-10">
                         <input type="file" class="form-control"  placeholder="Chọn tiệp" name="hinhanh" required>
                       </div>
@@ -58,19 +58,19 @@ ob_start();
                       </div>
                     </div>
                     <div class="form-group">
-                    <label for="inputPassword3" class="col-sm-2 control-label" >Nhà xuất bản</label>
+                    <label for="inputPassword3" class="col-sm-2 control-label" >Thể loại</label>
                     <div class="col-sm-10">
                     <select class="form-control select2" style="width: 100%;" name="manhasx">
-                    <option selected="selected" value="3">Chọn Nhà xuất bản</option>
+                    <option selected="selected" value="3">Chọn thể loại</option>
                      <?php
                          require '../inc/config.php';
-                         $sql="SELECT ID,Ten from nhaxuatban where ID != 3";
+                         $sql="SELECT catalog_id,catalog_name from product_catalog where catalog_id != 3";
                          $result = $conn->query($sql); 
                          if ($result->num_rows > 0) {
                           // output data of each row
                           while($row = $result->fetch_assoc()) {
                       ?>
-                      <option value="<?php echo $row["ID"] ?>"><?php echo $row["Ten"] ?></option>
+                      <option value="<?php echo $row["catalog_id"] ?>"><?php echo $row["catalog_name"] ?></option>
                       <?php 
                           }
                         }
@@ -79,37 +79,28 @@ ob_start();
                     </div>
                     </div>
                     <div class="form-group">
-                    <label for="inputPassword3" class="col-sm-2 control-label" >Ngày</label>
+                    <label for="inputPassword3" class="col-sm-2 control-label" >Giá nhập</label>
                     <div class="col-sm-10">
-                    <input type="date" class="form-control" id="datechoose" name="ngay" required> 
+                    <input type="text" class="form-control"  name="gianhap">
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="inputPassword3" class="col-sm-2 control-label" >Giá</label>
+                    <label for="inputPassword3" class="col-sm-2 control-label" >Giá bán</label>
                     <div class="col-sm-10">
                     <input type="text" class="form-control"  name="gia">
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="inputPassword3" class="col-sm-2 control-label" >Khuyến mãi</label>
-                    <div class="col-sm-10">
-                    <select class="form-control select2" style="width: 100%;" name="khuyenmai">
-                    <option selected="selected" value="1">Có khuyến mãi</option>
-                    <option  value="0">Không khuyến mãi</option>
-                    </select>
-                    </div>
-                    </div>
-                    <div class="form-group">
-                    <label for="inputPassword3" class="col-sm-2 control-label" >Giá khuyến mãi</label>
+                    <label for="inputPassword3" class="col-sm-2 control-label" >Phần trăm khuyến mãi</label>
                     <div class="col-sm-10">
                     <input type="text" class="form-control"  name="giakhuyenmai">
                     </div>
-                    </div>
+                  </div>
                   <div class="form-group">
                     <label for="inputPassword3" class="col-sm-2 control-label">Mô tả</label>
                     <div class="col-sm-10">
                     <textarea id="editor1" name="editor1" rows="10" cols="80">
-                                            Nhập mô tả
+                  
                     </textarea>
                     </div>
                   </div>                 

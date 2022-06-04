@@ -7,7 +7,7 @@
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
     <?php 
- include "Header.php";
+ include "header.php";
 ?> 
     <?php 
  include "aside.php";
@@ -43,31 +43,31 @@
                         <th>Giá</th>
                         <th>Hình ảnh</th>
                         <th>Tác giả</th>
-                        <th>Nhà xuất bản</th>
+                        <th>Thể loại</th>
                         <th>Tác vụ</th>
                       </tr>
                     </thead>
                     <tbody>  
                     <?php
                          require '../inc/config.php';
-                         $sql="SELECT s.ID,s.Ten,s.date,s.Gia,s.HinhAnh,s.tacgia,s.KhuyenMai,s.Mota, n.Ten as Tennhasx
-                         from sanpham s 
-                         LEFT JOIN nhaxuatban n on n.ID = s.Manhasx   ORDER BY s.Ten  ";
+                         $sql="SELECT s.product_id,s.catalog_id,s.product_name,s.input_price,s.price,s.discount,s.image,s.author,s.description,n.catalog_name as catalog_name
+                         from product s
+                         LEFT JOIN product_catalog n on n.catalog_id = s.catalog_id ORDER BY s.product_name  ";
                          $result = $conn->query($sql); 
                          if ($result->num_rows > 0) {
                           // output data of each row
                           while($row = $result->fetch_assoc()) {
                       ?>       
                         <tr>           
-                        <td ><a href ="chitietsp.php?id=<?php echo $row["ID"]?>" style="color:black"><?php echo $row["Ten"] ?></a></td>
-                        <td><?php echo $row["Gia"] ?></td>
-                        <td><img src="../images/<?php echo $row["HinhAnh"]?>" style="width:100px;height:100px"></td>
-                        <td><?php echo $row["tacgia"] ?></td>
-                        <td><?php echo $row["Tennhasx"] ?></td>
-                        <td><a class="btn btn-primary" href="suasp.php?id=<?php echo $row["ID"] ?>">
+                        <td><a href ="chitietsp.php?id=<?php echo $row["product_id"]?>" style="color:black"><?php echo $row["product_name"] ?></a></td>
+                        <td><?php echo $row["price"] ?></td>
+                        <td><img src="../images/<?php echo $row["image"]?>" style="width:100px;height:100px"></td>
+                        <td><?php echo $row["author"] ?></td>
+                        <td><?php echo $row["catalog_name"] ?></td>
+                        <td><a class="btn btn-primary" href="suasp.php?id=<?php echo $row["product_id"] ?>">
                     <i class="fa fa-edit fa-lg"<acronym title="Chỉnh sửa"></acronym></i>
                        </a>
-                        <a class="btn btn-danger" onclick="return confirm('Bạn có thật sự muốn xóa không ?');" href="xoasp.php?id=<?php  echo $row["ID"]  ?>" onclick="myFunction()">
+                        <a class="btn btn-danger" onclick="return confirm('Bạn có thật sự muốn xóa không ?');" href="xoasp.php?id=<?php  echo $row["product_id"]  ?>" onclick="myFunction()">
                         <i class="fa fa-trash-o fa-lg" <acronym title="Xóa">
                          </acronym></i></a></td>
                         </td>

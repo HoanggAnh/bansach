@@ -3,7 +3,7 @@ if(isset($_POST['create']))
 {
     require '../inc/config.php';
     $name = $_POST['name'];
-    $sql="INSERT INTO  nhaxuatban (Ten) 
+    $sql="INSERT INTO  product_catalog (catalog_name) 
     VALUES ('$name')";
     // echo  $mk;
     if (mysqli_query($conn, $sql)) {

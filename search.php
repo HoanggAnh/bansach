@@ -2,8 +2,12 @@
 include "login.php";
 include "header.php";
 include "navh.php";
-include "navbar.php";
+function redirect($url){
+    if(!empty($url))
+     header("Location: {$url}");
+}
 ?>
+
 <hr style=" border: 1.5px solid">
 <div id="page-content" class="single-page">
 	<div class="container">
@@ -29,7 +33,7 @@ include "navbar.php";
 							$row = mysqli_fetch_assoc($result);
 							$total_records = $row['total'];
 							if ($row['total'] == 0) {
-								header('Location: search-unavailable.php');
+								redirect('search-unavailable.php');
 							}
 							$offset = 1;
 							// BƯỚC 3: TÌM LIMIT VÀ CURRENT_PAGE
@@ -59,10 +63,10 @@ include "navbar.php";
 
 								<div class="col-lg-4 col-md-4 col-xs-12">
 									<div class="product">
-										<div class="image"><a href="product.php?id=<?php echo $row["product_id"] ?>"><img src="images/<?php echo $row["image"] ?>" style="width:200px;height:200px" /></a></div>
+										<div class="image"><a href="product.php?id=<?php echo $row["product_id"] ?>"><img src="images/<?php echo $row["image"] ?>" style="width:250px;height:250px" /></a></div>
 										<div class="caption">
 											<div class="name">
-												<h3><a style="color:#f3906c" href="product.php" ?><?php echo $row["product_name"] ?></a></h3>
+												<h3><a style="color:#f3906c" href="product.php?id=<?php echo $row["product_id"] ?>"><?php echo $row["product_name"] ?></a></h3>
 											</div>
 											<div class="price"><?php echo $row["price"] ?>,000 VND</div>
 										</div>
@@ -98,10 +102,6 @@ include "navbar.php";
 								?>
 									<li><?php echo '<a href="search.php?txttimkiem=' . $tentimkiem . '&page=' . $i . '">' . $i . '</a> '; ?></li>
 								<?php
-								}
-								else
-								{
-									header('Location: search-unavailable.php');
 								}
 								?>
 							<?php

@@ -10,14 +10,14 @@ include "navbar.php";
 
 <hr style=" border: 1.5px solid">
 <div id="page-content" class="single-page">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<ul class="breadcrumb">
-					<li><a href="index.php">Home</a></li>
-				</ul>
+<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<ul class="breadcrumb" style="background-color: #323741">
+						<li><a style="color:#fcc39b" href="index.php">Home</a></li>
+					</ul>
+				</div>
 			</div>
-		</div>
 
 		<div class="row">
 			<div id="main-content" class="col-md-8">

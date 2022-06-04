@@ -16,10 +16,10 @@ include "aside.php";
    require '../inc/config.php';
    //lay san pham theo id
    $id = $_GET["id"];
-   $query="SELECT s.ID,s.Ten,s.date,s.Gia,s.HinhAnh,s.KhuyenMai,s.giakhuyenmai,s.Mota, n.Ten as Tennhasx,s.Manhasx
-   from sanpham s 
-   LEFT JOIN nhaxuatban n on n.ID = s.Manhasx
-	WHERE  s.id =".$id;
+   $query="SELECT s.product_id,s.catalog_id,s.product_name,s.price,s.image,s.discount,s.author,s.description,n.catalog_name as catalog_name
+   from product s 
+   LEFT JOIN product_catalog n on n.catalog_id = s.catalog_id
+	WHERE  s.product_id =".$id;
    $result = $conn->query($query);
 $row = $result->fetch_assoc();
 
@@ -50,71 +50,44 @@ $row = $result->fetch_assoc();
                     <div class="form-group">
                       <label  class="col-sm-2">Tên:</label>
                       <div class="col-sm-5">
-                      <p><?php echo $row["Ten"] ?></p>
+                      <p><?php echo $row["product_name"] ?></p>
                       </div>
                     </div>
                     <div class="form-group">
                       <label  class="col-sm-2">Hình ảnh:</label>  
                       <div class="col-sm-2">
-                      <p><img src="../images/<?php echo $row["HinhAnh"]?>" style="width:300px;height:300px"></p>
+                      <p><img src="../images/<?php echo $row["image"]?>" style="width:300px;height:300px"></p>
                       </div>        
                     </div>
                     <div class="form-group">
-                    <label  class="col-sm-2 ">Nhà xuất bản:</label>
+                    <label  class="col-sm-2 ">Tác giả: </label>
                     <div class="col-sm-5">
-                      <p><?php echo $row["Tennhasx"] ?></p>
+                      <p><?php echo $row["author"] ?></p>
                       </div> 
-                    </div>
+                  </div>
                     <div class="form-group">
-                    <label class="col-sm-2 ">Ngày:</label>
+                    <label  class="col-sm-2 ">Thể loại:</label>
                     <div class="col-sm-5">
-                      <p><?php echo $row["date"] ?></p>
+                      <p><?php echo $row["catalog_name"] ?></p>
                       </div> 
                     </div>
                     <div class="form-group">
                     <label  class="col-sm-2 ">Giá:</label>  
                     <div class="col-sm-5">
-                      <p><?php echo $row["Gia"] ?>.000 VNĐ</p>
+                      <p><?php echo $row["price"] ?>,000 VNĐ</p>
                       </div>        
                     </div>
-                    <?php 
-                    if($row["KhuyenMai"]  == 1)
-                    {
-                    ?>
                     <div class="form-group">
-                    <label  class="col-sm-2" >Khuyến mãi:</label>    
+                    <label  class="col-sm-2" >Phần trăm khuyến mãi:</label>    
                     <div class="col-sm-5">
-                      <p style="color:red">Có khuyến mãi</p>
+                      <p style="color:red"><?php echo $row["discount"]?>%</p>
                       </div>    
                     </div>
-                    <div class="form-group">
-                    <label  class="col-sm-2" >Giá khuyến mãi:</label>    
-                    <div class="col-sm-5">
-                      <p style="color:red"><?php echo $row["giakhuyenmai"]?>.000 VNĐ</p>
-                      </div>    
-                    </div>
-                    <?php 
-                    }
-                    ?>
-                        <?php 
-                    if($row["KhuyenMai"]  == 0)
-                    {
-                    ?>
-                    <div class="form-group">
-                    <label  class="col-sm-2" >Khuyến mãi:</label>    
-                    <div class="col-sm-5">
-                      <p style="color:red">Không có khuyến mãi</p>
-                      </div>    
-                    </div>
-                    <?php 
-                    }
-                    ?>  
                   <div class="form-group">
                     <label  class="col-sm-2 ">Mô tả: </label>
                     <div class="col-sm-5">
-                      <p><?php echo $row["Mota"] ?></p>
+                      <p><?php echo $row["description"] ?></p>
                       </div> 
-                    
                   </div>
                   </div><!-- /.box-body -->
                   <div class="box-footer">

@@ -20,7 +20,7 @@ include "aside.php";
         <section class="content-header">
           <h1>
             Thêm
-            <small>Nhà xuất bản</small>
+            <small>Thể loại</small>
           </h1>
         </section>
 
@@ -35,15 +35,15 @@ include "aside.php";
               <!-- Horizontal Form -->
               <div class="box box-info">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Thêm Nhà xuất bản</h3>
+                  <h3 class="box-title">Thêm Thể loại</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
                 <form class="form-horizontal" method="POST" action="<?php include 'xulyluunhasx.php' ?>">
                   <div class="box-body">
                     <div class="form-group">
-                      <label for="inputEmail3"  class="col-sm-2 control-label">Tên Nhà xuất bản</label>
+                      <label for="inputEmail3"  class="col-sm-2 control-label">Tên Thể loại</label>
                       <div class="col-sm-10">
-                        <input type="text" name="name" class="form-control" placeholder="Nhập tên Nhà xuất bản" required>
+                        <input type="text" name="name" class="form-control" placeholder="Nhập tên Thể loại" required>
                       </div>
                     </div>
                   </div><!-- /.box-body -->

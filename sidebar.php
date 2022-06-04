@@ -1,7 +1,7 @@
 <div id="sidebar" class="col-md-4">
 	<div class="widget wid-categories">
 		<div class="heading">
-			<h3>Publishing House</h3>
+			<h3>Books</h3>
 		</div>
 		<div class="content">
 			<ul>
