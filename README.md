@@ -1,4 +1,4 @@
-# Nhóm 2 Đề tài 3: Xây dựng website giới thiệu và đặt sách trực tuyến
+# Nhóm 2 Đề tài: Dự án phát triển website bán sách
 # Các thành viên tham gia làm bài tập và dự thi: 
 - 1951060509: Đoàn Thị Hoàng Anh.
 - 1951060512: Hoàng Kim Anh.
