@@ -4,8 +4,8 @@
     require '../inc/config.php';
     $id = $_POST['id'];
     $name = $_POST['name'];
-        $sql = "UPDATE nhaxuatban SET Ten='$name'
-        WHERE id= '$id ' " ;
+        $sql = "UPDATE product_catalog SET catalog_name='$name'
+        WHERE catalog_id= '$id ' " ;
         if ($conn->query($sql) === TRUE) {
             header('Location: qlynhasx.php');
         } else {
