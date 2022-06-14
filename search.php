@@ -1,12 +1,11 @@
 <?php
-include "login.php";
-include "header.php";
-include "navh.php";
-include "navbar.php";
 function redirect($url){
     if(!empty($url))
      header("Location: {$url}");
 }
+include "login.php";
+include "header.php";
+include "navh.php";
 ?>
 
 <hr style=" border: 1.5px solid">
@@ -34,7 +33,7 @@ function redirect($url){
 							$row = mysqli_fetch_assoc($result);
 							$total_records = $row['total'];
 							if ($row['total'] == 0) {
-								redirect('search-unavailable.php');
+								exit(redirect('./search-unavailable.php'));
 							}
 							$offset = 1;
 							// BƯỚC 3: TÌM LIMIT VÀ CURRENT_PAGE
@@ -56,10 +55,9 @@ function redirect($url){
 
 							// BƯỚC 5: TRUY VẤN LẤY DANH SÁCH TIN TỨC
 							// Có limit và start rồi thì truy vấn CSDL lấy danh Sách tin tức
-							$result = mysqli_query($conn, "SELECT * FROM product where product_name like '%$tentimkiem%'  LIMIT $start, $limit ");
+							$result = mysqli_query($conn, "SELECT * FROM product where product_name like '%$tentimkiem%'  LIMIT $start, $limit;");
 							// output data of each row
 							while ($row = mysqli_fetch_assoc($result)) {
-
 							?>
 
 								<div class="col-lg-4 col-md-4 col-xs-12">
