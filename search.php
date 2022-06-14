@@ -2,6 +2,7 @@
 include "login.php";
 include "header.php";
 include "navh.php";
+include "navbar.php";
 function redirect($url){
     if(!empty($url))
      header("Location: {$url}");

@@ -96,7 +96,7 @@ body{
 	<hr> -->
 	<footer>
 		<hr>
-			<p id="copy" style="color: #f3906c; font-size: 2rem"><b>ThreeFairies Shop ©</b></p>
+			<p id="copy" style="color: #f3906c; font-size: 2rem"><b>Diamonds Book Store ©</b></p>
 		<hr>
 	</footer>
 </body>
