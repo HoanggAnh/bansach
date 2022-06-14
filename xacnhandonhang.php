@@ -18,12 +18,12 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-10">
-					<div class="heading text-center"><h1 style="color:black">Your order information has been recorded by us we will contact you as soon as possible!
+					<div class="heading text-center"><h1 style="color:black; text-align:center; margin-left:30%">Your order information has been recorded by us we will contact you as soon as possible!
                     </h1></div>
                 </div>
-				<img style="max-width: 300px; margin-left:30%" src="https://i.pinimg.com/564x/02/84/ed/0284ed6be0d06215cdc45a6dce4b2b91.jpg" alt="">
+				<img style="max-width: 300px; margin-left:40%" src="images/tk.png" alt="">
                 <div class="col-lg-10 text-center">
-                <a style="margin-top: 50px;margin-bottom:50px" href="index.php" class="btn btn-1">Back To Home</a>
+                <a style="margin-top: 50px;margin-bottom:50px; margin-left:27%" href="index.php" class="btn btn-1">Back To Home</a>
 				
 				</div>
 			</div>
